@@ -1,68 +1,109 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('http://fonts.cdnfonts.com/css/myriad-pro');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Myriad-Pro', sans-serif;
+}
+li {
+    list-style: none;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    text-decoration: none;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+    font-family: var(--font-roboto);
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+input {
+    overflow: visible;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Hide arrows from input number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/* Modal */
+.ReactModalPortal > div{
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
+  
+  .ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+    z-index: 999;
   }
-  button {
-    background-color: #f9f9f9;
+  
+  .modal-fondo {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
   }
+  
+  .ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+  
+  .ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+  
+  .modal {
+    border-radius: 0.75rem;
+    /* color: white; */
+    background-color: #F6F1F1;
+    display: inline;
+    max-height: 620px;
+    max-width: 500px;
+    outline: none;
+    padding: 10px;
+    @media (max-width: 768px) {
+        width: 90%
+    }
+  }
+/* Custom styles */
+@layer components {
+    .containerApp {
+        @apply relative overflow-x-auto tracking-wide;
+    }
+
+    .innerWidth {
+        @apply w-full xxl:max-w-[1280px] xxl:mx-auto;
+    }
+
+    .paddings {
+        @apply sm:p-[4rem] md:py-[2rem] p-[1.5rem];
+    }
+    .yPaddings {
+        @apply sm:pt-[4rem] sm:pb-[4rem] xl:pt-[2rem] xl:pb-[2rem] pt-[3rem] pb-[3rem];
+    }
+    .xPaddings {
+        @apply sm:px-[4rem] md:px-[2rem] px-[1.5rem];
+    }
+}
+
+.font-myriad {
+    font-family: 'Myriad-Pro', sans-serif;
 }
