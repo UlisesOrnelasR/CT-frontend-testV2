@@ -78,8 +78,8 @@ export const Navbar = () => {
             </div>
           </div>
           <div className="flex gap-1 items-center border-l-2 pl-4">
-            <Settings />
-            <EllipsisVertical />
+            <Settings className="cursor-pointer" />
+            <EllipsisVertical className="cursor-pointer" />
           </div>
         </div>
       </div>
