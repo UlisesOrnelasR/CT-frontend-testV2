@@ -11,7 +11,7 @@ export const Navbar = () => {
           className="w-auto h-12 md:h-auto"
         />
       </h1>
-      <nav className="md:col-span-7 flex items-center gap-4 justify-center">
+      <nav className="col-span-1 md:col-span-7 flex flex-wrap items-center gap-4 justify-center">
         <div className="px-2 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
             src="/assets/images/overview.png"
