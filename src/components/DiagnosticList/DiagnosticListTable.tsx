@@ -4,7 +4,7 @@ import { Table } from "../ui";
 //   products: Product[];
 // }
 
-export const DiagnosisHistoryTable = ({ diagnostic_list }: any) => {
+export const DiagnosticListTable = ({ diagnostic_list }: any) => {
   const columns = [
     {
       header: "Problem/Diagnosis",

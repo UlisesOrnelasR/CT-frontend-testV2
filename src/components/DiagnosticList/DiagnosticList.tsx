@@ -1,4 +1,4 @@
-import { DiagnosisHistoryTable } from "../DiagnosisHistory/DiagnosisHistoryTable";
+import { DiagnosticListTable } from "./DiagnosticListTable";
 import { Title } from "../ui";
 
 const diagnostic_list = [
@@ -112,7 +112,7 @@ export const DiagnosticList = () => {
       </div>
       <div className="px-4 pl-4 mt-9">
         <div>
-          <DiagnosisHistoryTable diagnostic_list={diagnostic_list} />
+          <DiagnosticListTable diagnostic_list={diagnostic_list} />
         </div>
       </div>
     </div>
