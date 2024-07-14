@@ -6,7 +6,9 @@ export const DiagnosticList = () => {
       <div className="p-4">
         <Title title="Diagnostic List" />
       </div>
-      <div className="px-4 pl-4 mt-9">hii</div>
+      <div className="px-4 pl-4 mt-9">
+        <div className="grid grid-cols-12 justify-center">table</div>
+      </div>
     </div>
   );
 };

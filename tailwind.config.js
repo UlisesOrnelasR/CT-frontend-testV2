@@ -6,12 +6,14 @@ module.exports = {
       colors: {
         primary: "#01F0D0",
         secondary: "#D8FCF7",
+        shadow: "#F6F7F8",
         text: "#072635",
         textSecondary: "#707070"
       },
       borderRadius: {
         '41px': '41px',
         '70px': '70px',
+        '24px': '24px',
         '16px': '16px',
       },
       height: {
