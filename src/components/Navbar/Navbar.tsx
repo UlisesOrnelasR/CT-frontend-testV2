@@ -17,7 +17,7 @@ export const Navbar = () => {
             alt="overview"
             className="w-4 h-4"
           />
-          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-semibold">
+          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-bold">
             Overview
           </a>
         </div>
@@ -27,7 +27,7 @@ export const Navbar = () => {
             alt="patients"
             className="w-5 h-4"
           />
-          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-semibold">
+          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-bold">
             Patients
           </a>
         </div>
@@ -37,7 +37,7 @@ export const Navbar = () => {
             alt="schedule"
             className="w-4 h-4"
           />
-          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-semibold">
+          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-bold">
             Schedule
           </a>
         </div>
@@ -47,7 +47,7 @@ export const Navbar = () => {
             alt="message"
             className="w-4 h-4"
           />
-          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-semibold">
+          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-bold">
             Message
           </a>
         </div>
@@ -57,7 +57,7 @@ export const Navbar = () => {
             alt="transactions"
             className="w-4 h-4"
           />
-          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-semibold">
+          <a href="#" className="xl:py-1 xl:px-1 rounded-lg font-bold">
             Transactions
           </a>
         </div>
@@ -71,9 +71,7 @@ export const Navbar = () => {
               className="w-12"
             />
             <div className="flex flex-col justify-start">
-              <p className="font-semibold whitespace-nowrap">
-                Dr. Jose Simmons
-              </p>
+              <p className="font-bold whitespace-nowrap">Dr. Jose Simmons</p>
               <p className="ml-5 text-textSecondary whitespace-nowrap">
                 General Practitioner
               </p>
