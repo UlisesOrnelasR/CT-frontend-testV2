@@ -20,7 +20,7 @@ export function Table({ data, columns, maxHeight }: Props) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full divide-y mb-4">
+      <table className="min-w-full mb-4">
         <thead className="bg-shadow">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
