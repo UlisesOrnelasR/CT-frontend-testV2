@@ -4,12 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#BBE1FA",
-        secondary: "#3282B8",
-        tertiary: "#0F4C75",
-        dark: "#1B262C",
-        black: "#343434",
-        text: "#F6F1F1",
+        primary: "#01F0D0",
+        secondary: "#D8FCF7",
+        text: "#072635",
+        textSecondary: "#707070"
+      },
+      borderRadius: {
+        '41px': '41px',
+        '70px': '70px',
       },
     },
   },
