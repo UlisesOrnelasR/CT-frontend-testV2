@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { DashboardPage } from "../pages/DashboardPage";
+import { Patients } from "../pages/Patients";
 import { Layout } from "../components";
 
 export const AppRouter = () => {
@@ -7,7 +7,7 @@ export const AppRouter = () => {
     <Routes>
       <Route path="/*" element={<Navigate to="/" replace />} />
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<DashboardPage />} />
+        <Route path="/" element={<Patients />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

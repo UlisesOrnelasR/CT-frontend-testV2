@@ -1,9 +1,8 @@
 import { EllipsisVertical, Settings } from "lucide-react";
-import { cn } from "../../libs/utils";
 
 export const Navbar = () => {
   return (
-    <div className="w-full mt-5 bg-white rounded-70px p-4 grid md:grid-cols-12 gap-4 items-center justify-center">
+    <div className="w-full mt-5 mb-8 bg-white rounded-70px p-4 grid md:grid-cols-12 gap-4 items-center justify-center">
       <h1 className="md:col-span-2 flex justify-center md:justify-start font-bold cursor-pointer text-3xl">
         <img
           src="/assets/images/logo.png"
@@ -12,7 +11,7 @@ export const Navbar = () => {
         />
       </h1>
       <nav className="col-span-1 md:col-span-7 flex flex-wrap items-center gap-4 justify-center">
-        <div className="px-2 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
+        <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
             src="/assets/images/overview.png"
             alt="overview"
@@ -22,7 +21,7 @@ export const Navbar = () => {
             Overview
           </a>
         </div>
-        <div className="px-2 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
+        <div className="px-3 py-1 rounded-41px flex items-center gap-1 bg-primary transition-colors">
           <img
             src="/assets/images/patients.png"
             alt="patients"
@@ -32,7 +31,7 @@ export const Navbar = () => {
             Patients
           </a>
         </div>
-        <div className="px-2 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
+        <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
             src="/assets/images/schedule.png"
             alt="schedule"
@@ -42,7 +41,7 @@ export const Navbar = () => {
             Schedule
           </a>
         </div>
-        <div className="px-2 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
+        <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
             src="/assets/images/message.png"
             alt="message"
@@ -52,7 +51,7 @@ export const Navbar = () => {
             Message
           </a>
         </div>
-        <div className="px-2 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
+        <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
             src="/assets/images/transactions.png"
             alt="transactions"
