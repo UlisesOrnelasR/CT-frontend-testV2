@@ -23,7 +23,7 @@ export const DiagnosisHistoryTable = ({ diagnostic_list }: any) => {
 
   return (
     <>
-      <Table data={diagnostic_list} columns={columns} />
+      <Table data={diagnostic_list} columns={columns} maxHeight="179px" />
     </>
   );
 };

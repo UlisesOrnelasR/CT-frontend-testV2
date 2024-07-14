@@ -52,20 +52,67 @@ const diagnostic_list = [
     description: "Degenerative joint disease",
     status: "Untreated",
   },
+  {
+    name: "Asthma",
+    description: "Recurrent episodes of bronchial constriction",
+    status: "Inactive",
+  },
+  {
+    name: "Osteoarthritis",
+    description: "Degenerative joint disease",
+    status: "Untreated",
+  },
+  {
+    name: "Asthma",
+    description: "Recurrent episodes of bronchial constriction",
+    status: "Inactive",
+  },
+  {
+    name: "Osteoarthritis",
+    description: "Degenerative joint disease",
+    status: "Untreated",
+  },
+  {
+    name: "Asthma",
+    description: "Recurrent episodes of bronchial constriction",
+    status: "Inactive",
+  },
+  {
+    name: "Osteoarthritis",
+    description: "Degenerative joint disease",
+    status: "Untreated",
+  },
+  {
+    name: "Asthma",
+    description: "Recurrent episodes of bronchial constriction",
+    status: "Inactive",
+  },
+  {
+    name: "Osteoarthritis",
+    description: "Degenerative joint disease",
+    status: "Untreated",
+  },
+  {
+    name: "Asthma",
+    description: "Recurrent episodes of bronchial constriction",
+    status: "Inactive",
+  },
+  {
+    name: "Osteoarthritis",
+    description: "Degenerative joint disease",
+    status: "Untreated",
+  },
 ];
 
 export const DiagnosticList = () => {
   return (
-    <div className="bg-white rounded-16px pr-1 pb-6">
+    <div className="bg-white rounded-16px pb-6">
       <div className="p-4">
         <Title title="Diagnostic List" />
       </div>
       <div className="px-4 pl-4 mt-9">
         <div>
-          <DiagnosisHistoryTable
-            diagnostic_list={diagnostic_list}
-            maxHeight="349"
-          />
+          <DiagnosisHistoryTable diagnostic_list={diagnostic_list} />
         </div>
       </div>
     </div>
