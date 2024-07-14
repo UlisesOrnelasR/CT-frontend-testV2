@@ -14,6 +14,12 @@ module.exports = {
         '70px': '70px',
         '16px': '16px',
       },
+      height: {
+        '1054': '1054px'
+      },
+      maxHeight: {
+        '1054': '1054px'
+      },
     },
   },
   plugins: [],

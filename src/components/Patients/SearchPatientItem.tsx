@@ -1,4 +1,4 @@
-import { EllipsisVertical } from "lucide-react";
+import { Ellipsis } from "lucide-react";
 
 interface Patient {
   name: string;
@@ -24,7 +24,7 @@ export const SearchPatientItem = ({ ...patient }: Patient) => {
         </div>
       </div>
       <div className="cursor-pointer">
-        <EllipsisVertical />
+        <Ellipsis />
       </div>
     </div>
   );
