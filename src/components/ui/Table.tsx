@@ -48,11 +48,7 @@ export function Table({ data, columns, maxHeight = "400px" }: Props) {
       </table>
       <div
         // className="overflow-y-auto"
-        // style={{ maxHeight }}
-        className={cn(
-          "overflow-y-auto",
-          maxHeight ? `max-h-[${maxHeight}]` : ""
-        )}
+        style={{ maxHeight }}
       >
         <table className="min-w-full text-left">
           <tbody className="divide-y divide-shadow bg-white">

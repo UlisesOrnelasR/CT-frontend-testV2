@@ -13,7 +13,7 @@ export const DiagnosisHistory = () => {
             <img
               src="assets/images/respiratory.png"
               alt="respiratory"
-              className="w-24"
+              className="w-24 mb-4"
             />
             <p className="text-lg font-semibold">Respiratory Rate</p>
             <p className="text-3xl font-extrabold mb-4">20 bpm</p>
@@ -25,7 +25,7 @@ export const DiagnosisHistory = () => {
             <img
               src="assets/images/temperatureR.png"
               alt="respiratory"
-              className="w-24"
+              className="w-24 mb-4"
             />
             <p className="text-lg font-semibold">Temperature</p>
             <p className="text-3xl font-extrabold mb-4">98.6°F</p>
@@ -37,7 +37,7 @@ export const DiagnosisHistory = () => {
             <img
               src="assets/images/heart.png"
               alt="respiratory"
-              className="w-24"
+              className="w-24 mb-4"
             />
             <p className="text-lg font-semibold">Heart Rate</p>
             <p className="text-3xl font-extrabold mb-4">78 bpm</p>
