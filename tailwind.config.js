@@ -8,7 +8,11 @@ module.exports = {
         secondary: "#D8FCF7",
         shadow: "#F6F7F8",
         text: "#072635",
-        textSecondary: "#707070"
+        textSecondary: "#707070",
+        respiratory: "#E0F3FA",
+        temperatureR: "#FFE6E9",
+        heart: "#FFE6F1"
+
       },
       borderRadius: {
         '41px': '41px',
