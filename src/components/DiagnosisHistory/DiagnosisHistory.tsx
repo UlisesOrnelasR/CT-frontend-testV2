@@ -9,7 +9,7 @@ export const DiagnosisHistory = () => {
       <div className="px-4 pl-4 mt-9 w-full">
         <div>graph</div>
         <div className="flex flex-row gap-5">
-          <div className="bg-respiratory rounded-xl p-4 text-left">
+          <div className="flex-1 bg-respiratory rounded-xl p-4 text-left">
             <img
               src="assets/images/respiratory.png"
               alt="respiratory"
@@ -21,7 +21,7 @@ export const DiagnosisHistory = () => {
               <span>Normal</span>
             </p>
           </div>
-          <div className="bg-temperatureR rounded-xl p-4 text-left">
+          <div className="flex-1 bg-temperatureR rounded-xl p-4 text-left">
             <img
               src="assets/images/temperatureR.png"
               alt="respiratory"
@@ -33,7 +33,7 @@ export const DiagnosisHistory = () => {
               <span>Normal</span>
             </p>
           </div>
-          <div className="bg-heart rounded-xl p-4 text-left">
+          <div className="flex-1 bg-heart rounded-xl p-4 text-left">
             <img
               src="assets/images/heart.png"
               alt="respiratory"
