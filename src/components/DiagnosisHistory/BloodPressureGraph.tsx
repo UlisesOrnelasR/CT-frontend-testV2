@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   LineChart,
   Line,
@@ -257,15 +257,10 @@ const transformData = (data, timeRange) => {
   }));
 };
 
-export const BloodPressureGraph = () => {
+const BloodPressureGraph = () => {
   const [timeRange, setTimeRange] = useState("6months");
-
   const data = transformData(diagnosisHistory, timeRange);
-
-  const systolicAverage =
-    data.reduce((acc, entry) => acc + entry.systolic, 0) / data.length;
-  const diastolicAverage =
-    data.reduce((acc, entry) => acc + entry.diastolic, 0) / data.length;
+  const { systolicAverage, diastolicAverage } = calculateAverages(data);
 
   return (
     <div className="mb-5 rounded-xl bg-graph p-5">
@@ -286,33 +281,64 @@ export const BloodPressureGraph = () => {
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
           data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          margin={{ top: 5, right: 200, left: 0, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="monthYear" />
           <YAxis />
           <Tooltip />
-          <Legend layout="vertical" align="right" verticalAlign="middle" />
+          <Legend
+            wrapperStyle={{
+              right: 0,
+              left: "auto",
+              position: "absolute",
+              top: 0,
+              textAlign: "right",
+            }}
+            content={
+              <LegendContent
+                systolicAverage={systolicAverage}
+                diastolicAverage={diastolicAverage}
+              />
+            }
+          />
           <Line
             type="monotone"
             dataKey="systolic"
             stroke="#C26EB4"
-            name={`Systolic (Avg: ${systolicAverage.toFixed(2)})`}
+            // name={`Systolic (Avg: ${systolicAverage.toFixed(2)})`}
             activeDot={{ r: 8 }}
           />
           <Line
             type="monotone"
             dataKey="diastolic"
             stroke="#7E6CAB"
-            name={`Diastolic (Avg: ${diastolicAverage.toFixed(2)})`}
+            // name={`Diastolic (Avg: ${diastolicAverage.toFixed(2)})`}
           />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
+
+const calculateAverages = (data) => {
+  const systolicSum = data.reduce((acc, entry) => acc + entry.systolic, 0);
+  const diastolicSum = data.reduce((acc, entry) => acc + entry.diastolic, 0);
+  const systolicAverage = systolicSum / data.length;
+  const diastolicAverage = diastolicSum / data.length;
+  return { systolicAverage, diastolicAverage };
+};
+
+const LegendContent = ({ systolicAverage, diastolicAverage }) => (
+  <div className="legend-container">
+    <div className="legend-item flex flex-col gap-1">
+      <div className="legend-color" style={{ backgroundColor: "#C26EB4" }} />
+      <p className="font-bold">Systolic</p>
+      <div className="legend-label font-bold text-xl">{`
+       ${systolicAverage.toFixed(0)}`}</div>
+      <div>Higher than Average</div>
+    </div>
+  </div>
+);
+
+export default BloodPressureGraph;
