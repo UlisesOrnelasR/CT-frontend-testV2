@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   LineChart,
   Line,
@@ -247,8 +247,11 @@ const transformData = (data, timeRange) => {
     return timeRange === "6months" ? monthsDiff <= 6 : monthsDiff <= 12;
   });
 
-  return filteredData.map((entry) => ({
-    month: entry.month,
+  // Invertir el orden de los datos
+  const reversedData = filteredData.reverse();
+
+  return reversedData.map((entry) => ({
+    monthYear: `${entry.month}, ${entry.year}`, // Modificar para incluir mes y año
     systolic: entry.blood_pressure.systolic.value,
     diastolic: entry.blood_pressure.diastolic.value,
   }));
@@ -260,19 +263,20 @@ export const BloodPressureGraph = () => {
   const data = transformData(diagnosisHistory, timeRange);
 
   return (
-    <div className="mb-5 rounded-xl bg-graph">
-      <div className="mb-4">
-        <label htmlFor="timeRange" className="mr-2">
-          Select Time Range:
-        </label>
-        <select
-          id="timeRange"
-          value={timeRange}
-          onChange={(e) => setTimeRange(e.target.value)}
-        >
-          <option value="6months">Last 6 months</option>
-          <option value="1year">Last year</option>
-        </select>
+    <div className="mb-5 rounded-xl bg-graph p-5">
+      <div className="mb-4 flex flex-row justify-between">
+        <div className="font-bold text-xl">Blood Pressure</div>
+        <div>
+          <select
+            id="timeRange"
+            value={timeRange}
+            onChange={(e) => setTimeRange(e.target.value)}
+            className="bg-graph"
+          >
+            <option value="6months">Last 6 months</option>
+            <option value="1year">Last year</option>
+          </select>
+        </div>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
@@ -285,7 +289,7 @@ export const BloodPressureGraph = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
+          <XAxis dataKey="monthYear" />
           <YAxis />
           <Tooltip />
           <Legend />
