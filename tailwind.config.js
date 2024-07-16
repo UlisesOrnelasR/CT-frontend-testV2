@@ -11,8 +11,8 @@ module.exports = {
         textSecondary: "#707070",
         respiratory: "#E0F3FA",
         temperatureR: "#FFE6E9",
-        heart: "#FFE6F1"
-
+        heart: "#FFE6F1",
+        graph: "#F4F0FE"
       },
       borderRadius: {
         '41px': '41px',
