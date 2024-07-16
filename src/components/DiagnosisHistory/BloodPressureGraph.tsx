@@ -262,9 +262,14 @@ export const BloodPressureGraph = () => {
 
   const data = transformData(diagnosisHistory, timeRange);
 
+  const systolicAverage =
+    data.reduce((acc, entry) => acc + entry.systolic, 0) / data.length;
+  const diastolicAverage =
+    data.reduce((acc, entry) => acc + entry.diastolic, 0) / data.length;
+
   return (
     <div className="mb-5 rounded-xl bg-graph p-5">
-      <div className="mb-4 flex flex-row justify-between">
+      <div className="mb-4 flex flex-row justify-between items-center">
         <div className="font-bold text-xl">Blood Pressure</div>
         <div>
           <select
@@ -292,19 +297,19 @@ export const BloodPressureGraph = () => {
           <XAxis dataKey="monthYear" />
           <YAxis />
           <Tooltip />
-          <Legend />
+          <Legend layout="vertical" align="right" verticalAlign="middle" />
           <Line
             type="monotone"
             dataKey="systolic"
-            stroke="#8884d8"
-            name="Systolic Blood Pressure"
+            stroke="#C26EB4"
+            name={`Systolic (Avg: ${systolicAverage.toFixed(2)})`}
             activeDot={{ r: 8 }}
           />
           <Line
             type="monotone"
             dataKey="diastolic"
-            stroke="#82ca9d"
-            name="Diastolic Blood Pressure"
+            stroke="#7E6CAB"
+            name={`Diastolic (Avg: ${diastolicAverage.toFixed(2)})`}
           />
         </LineChart>
       </ResponsiveContainer>
