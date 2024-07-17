@@ -4,7 +4,7 @@ Este proyecto es una prueba técnica que implementé utilizando varias tecnolog�
 
 ## Características del Proyecto
 
-- **⚛️ React.js**: Utilizado para construir la interfaz de usuario, aprovechando su arquitectura basada en componentes.
+- **⚛️ React.js with Typescript**: Utilizado para construir la interfaz de usuario, aprovechando su arquitectura basada en componentes.
 - **🛠️ Redux Toolkit**: Utilizado para la gestión del estado global de la aplicación, simplificando la configuración y el manejo del estado.
 - **🔗 Axios**: Empleado para realizar peticiones HTTP a APIs, facilitando la comunicación con el backend.
 - **📊 Recharts**: Implementado para la visualización de datos a través de gráficos interactivos y personalizados.
