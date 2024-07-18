@@ -1,11 +1,12 @@
 import { EllipsisVertical, Settings } from "lucide-react";
+import { getAssetUrl } from "../../libs/utils";
 
 export const Navbar = () => {
   return (
     <div className="w-full mt-5 bg-white rounded-70px p-4 grid md:grid-cols-12 gap-4 items-center justify-center">
       <h1 className="md:col-span-2 flex justify-center md:justify-start font-bold cursor-pointer text-3xl">
         <img
-          src="/assets/images/logo.png"
+          src={getAssetUrl("assets/images/logo.png")}
           alt="Logo"
           className="w-auto h-12 md:h-auto"
         />
@@ -13,7 +14,7 @@ export const Navbar = () => {
       <nav className="col-span-1 md:col-span-7 flex flex-wrap items-center gap-4 justify-center">
         <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
-            src="/assets/images/overview.png"
+            src={getAssetUrl("assets/images/overview.png")}
             alt="overview"
             className="w-4 h-4"
           />
@@ -23,7 +24,7 @@ export const Navbar = () => {
         </div>
         <div className="px-3 py-1 rounded-41px flex items-center gap-1 bg-primary transition-colors">
           <img
-            src="/assets/images/patients.png"
+            src={getAssetUrl("assets/images/patients.png")}
             alt="patients"
             className="w-5 h-4"
           />
@@ -33,7 +34,7 @@ export const Navbar = () => {
         </div>
         <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
-            src="/assets/images/schedule.png"
+            src={getAssetUrl("assets/images/schedule.png")}
             alt="schedule"
             className="w-4 h-4"
           />
@@ -43,7 +44,7 @@ export const Navbar = () => {
         </div>
         <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
-            src="/assets/images/message.png"
+            src={getAssetUrl("assets/images/message.png")}
             alt="message"
             className="w-4 h-4"
           />
@@ -53,7 +54,7 @@ export const Navbar = () => {
         </div>
         <div className="px-3 py-1 rounded-41px flex items-center gap-1 hover:bg-primary transition-colors">
           <img
-            src="/assets/images/transactions.png"
+            src={getAssetUrl("assets/images/transactions.png")}
             alt="transactions"
             className="w-4 h-4"
           />
@@ -66,7 +67,7 @@ export const Navbar = () => {
         <div className="flex gap-5">
           <div className="flex items-center gap-1">
             <img
-              src="/assets/images/portrait.png"
+              src={getAssetUrl("assets/images/portrait.png")}
               alt="portrait"
               className="w-12"
             />

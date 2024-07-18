@@ -1,5 +1,6 @@
 import { usePatientsStore } from "../../hooks/usePatientsStore";
 import { useState, useEffect } from "react";
+import { getAssetUrl } from "../../libs/utils";
 
 export const Rates = () => {
   const { activePatient } = usePatientsStore();
@@ -37,7 +38,7 @@ export const Rates = () => {
     <div className="flex flex-row gap-5">
       <div className="flex-1 bg-respiratory rounded-xl p-4 text-left">
         <img
-          src="assets/images/respiratory.png"
+          src={getAssetUrl("assets/images/respiratory.png")}
           alt="respiratory"
           className="w-24 mb-4"
         />
@@ -51,7 +52,7 @@ export const Rates = () => {
       </div>
       <div className="flex-1 bg-temperatureR rounded-xl p-4 text-left">
         <img
-          src="assets/images/temperatureR.png"
+          src={getAssetUrl("assets/images/temperatureR.png")}
           alt="respiratory"
           className="w-24 mb-4"
         />
@@ -65,7 +66,7 @@ export const Rates = () => {
       </div>
       <div className="flex-1 bg-heart rounded-xl p-4 text-left">
         <img
-          src="assets/images/heart.png"
+          src={getAssetUrl("assets/images/heart.png")}
           alt="respiratory"
           className="w-24 mb-4"
         />
@@ -75,7 +76,7 @@ export const Rates = () => {
         </p>
         <p className="flex items-center">
           <img
-            src="assets/images/ArrowDown.png"
+            src={getAssetUrl("assets/images/ArrowDown.png")}
             alt="ArrowDown"
             className="mr-3 w-2 h-1.5"
           />

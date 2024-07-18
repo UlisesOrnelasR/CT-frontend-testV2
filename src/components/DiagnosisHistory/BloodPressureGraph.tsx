@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import { usePatientsStore } from "../../hooks/usePatientsStore";
 import { BloodPressureData } from "../../models/patients";
+import { getAssetUrl } from "../../libs/utils";
 
 const monthAbbreviations: { [key: string]: string } = {
   January: "Jan",
@@ -153,7 +154,7 @@ const LegendContent: React.FC<LegendContentProps> = ({
        ${systolicAverage.toFixed(0)}`}</div>
       <div className="flex flex-row items-center justify-end">
         <img
-          src="assets/images/ArrowUp.png"
+          src={getAssetUrl("assets/images/ArrowUp.png")}
           alt="ArrowUp"
           className="w-3 h-2 mr-3"
         />
@@ -173,7 +174,7 @@ const LegendContent: React.FC<LegendContentProps> = ({
        ${diastolicAverage.toFixed(0)}`}</div>
       <div className="flex flex-row items-center justify-end">
         <img
-          src="assets/images/ArrowDown.png"
+          src={getAssetUrl("assets/images/ArrowDown.png")}
           alt="ArrowDown"
           className="w-3 h-2 mr-3"
         />

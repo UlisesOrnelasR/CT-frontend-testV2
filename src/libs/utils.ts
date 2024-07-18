@@ -20,3 +20,8 @@ export const formatDateOfBirth = (dateString: string) => {
   };
   return date.toLocaleDateString("en-US", options);
 };
+
+export const getAssetUrl = (path: string) => {
+  const baseUrl = import.meta.env.BASE_URL;
+  return `${baseUrl}${path}`;
+};
