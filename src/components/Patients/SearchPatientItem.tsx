@@ -9,7 +9,7 @@ interface Patient {
 
 export const SearchPatientItem = ({ ...patient }: Patient) => {
   return (
-    <div className="flex items-center justify-between">
+    <div className="pl-5 py-3 flex items-center justify-between hover:bg-secondary transition-colors">
       <div className="flex items-center gap-3">
         <img
           src={patient.profile_picture}

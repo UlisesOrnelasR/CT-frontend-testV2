@@ -9,235 +9,25 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { usePatientsStore } from "../../hooks/usePatientsStore";
+import { BloodPressureData } from "../../models/patients";
 
-const diagnosisHistory = [
-  {
-    month: "March",
-    year: 2024,
-    blood_pressure: {
-      systolic: {
-        value: 160,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 78,
-        levels: "Lower than Average",
-      },
-    },
-  },
-  {
-    month: "February",
-    year: 2024,
-    blood_pressure: {
-      systolic: {
-        value: 119,
-        levels: "Normal",
-      },
-      diastolic: {
-        value: 73,
-        levels: "Lower than Average",
-      },
-    },
-  },
-  {
-    month: "January",
-    year: 2024,
-    blood_pressure: {
-      systolic: {
-        value: 128,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 86,
-        levels: "Lower than Average",
-      },
-    },
-  },
-  {
-    month: "December",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 91,
-        levels: "Normal",
-      },
-      diastolic: {
-        value: 111,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "November",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 173,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 103,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "October",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 125,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 103,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "September",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 123,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 113,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "August",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 137,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 112,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "July",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 148,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 87,
-        levels: "Lower than Average",
-      },
-    },
-  },
-  {
-    month: "June",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 102,
-        levels: "Normal",
-      },
-      diastolic: {
-        value: 73,
-        levels: "Lower than Average",
-      },
-    },
-  },
-  {
-    month: "May",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 98,
-        levels: "Normal",
-      },
-      diastolic: {
-        value: 115,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "April",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 130,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 108,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "March",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 129,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 101,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "February",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 173,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 69,
-        levels: "Lower than Average",
-      },
-    },
-  },
-  {
-    month: "January",
-    year: 2023,
-    blood_pressure: {
-      systolic: {
-        value: 159,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 96,
-        levels: "Normal",
-      },
-    },
-  },
-  {
-    month: "December",
-    year: 2022,
-    blood_pressure: {
-      systolic: {
-        value: 139,
-        levels: "Higher than Average",
-      },
-      diastolic: {
-        value: 61,
-        levels: "Lower than Average",
-      },
-    },
-  },
-];
+const monthAbbreviations: { [key: string]: string } = {
+  January: "Jan",
+  February: "Feb",
+  March: "Mar",
+  April: "Apr",
+  May: "May",
+  June: "Jun",
+  July: "Jul",
+  August: "Aug",
+  September: "Sep",
+  October: "Oct",
+  November: "Nov",
+  December: "Dec",
+};
 
-const transformData = (data, timeRange) => {
+const transformData = (data: BloodPressureData[], timeRange: string) => {
   const currentDate = new Date();
   const filteredData = data.filter((entry) => {
     const entryDate = new Date(`${entry.month} 1, ${entry.year}`);
@@ -247,20 +37,27 @@ const transformData = (data, timeRange) => {
     return timeRange === "6months" ? monthsDiff <= 6 : monthsDiff <= 12;
   });
 
-  // Invertir el orden de los datos
   const reversedData = filteredData.reverse();
 
   return reversedData.map((entry) => ({
-    monthYear: `${entry.month}, ${entry.year}`, // Modificar para incluir mes y año
+    monthYear: `${monthAbbreviations[entry.month]}, ${entry.year}`,
     systolic: entry.blood_pressure.systolic.value,
     diastolic: entry.blood_pressure.diastolic.value,
   }));
 };
 
-const BloodPressureGraph = () => {
+export const BloodPressureGraph: React.FC = () => {
+  const { activePatient } = usePatientsStore();
+
   const [timeRange, setTimeRange] = useState("6months");
-  const data = transformData(diagnosisHistory, timeRange);
+  const data = activePatient
+    ? transformData(activePatient.diagnosis_history, timeRange)
+    : [];
   const { systolicAverage, diastolicAverage } = calculateAverages(data);
+
+  if (!activePatient) {
+    return null; // Or handle loading state or error state as needed
+  }
 
   return (
     <div className="mb-5 rounded-xl bg-graph p-5">
@@ -273,55 +70,59 @@ const BloodPressureGraph = () => {
             onChange={(e) => setTimeRange(e.target.value)}
             className="bg-graph"
           >
-            <option value="6months">Last 6 months</option>
             <option value="1year">Last year</option>
+            <option value="6months">Last 6 months</option>
           </select>
         </div>
       </div>
-      <ResponsiveContainer width="100%" height={400}>
-        <LineChart
-          data={data}
-          margin={{ top: 5, right: 200, left: 0, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="monthYear" />
-          <YAxis />
-          <Tooltip />
-          <Legend
-            wrapperStyle={{
-              right: 0,
-              left: "auto",
-              position: "absolute",
-              top: 0,
-              textAlign: "right",
-            }}
-            content={
-              <LegendContent
-                systolicAverage={systolicAverage}
-                diastolicAverage={diastolicAverage}
-              />
-            }
-          />
-          <Line
-            type="monotone"
-            dataKey="systolic"
-            stroke="#C26EB4"
-            // name={`Systolic (Avg: ${systolicAverage.toFixed(2)})`}
-            activeDot={{ r: 8 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="diastolic"
-            stroke="#7E6CAB"
-            // name={`Diastolic (Avg: ${diastolicAverage.toFixed(2)})`}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <div style={{ width: "100%", height: 210 }}>
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart
+            data={data}
+            margin={{ top: 5, right: 200, left: 0, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="monthYear" />
+            <YAxis ticks={[60, 80, 100, 120, 140, 160, 180]} />
+            <Tooltip />
+            <Legend
+              wrapperStyle={{
+                right: 0,
+                left: "auto",
+                position: "absolute",
+                top: 0,
+                textAlign: "right",
+              }}
+              content={
+                <LegendContent
+                  systolicAverage={systolicAverage}
+                  diastolicAverage={diastolicAverage}
+                />
+              }
+            />
+            <Line
+              type="monotone"
+              dataKey="systolic"
+              stroke="#C26EB4"
+              name={`Systolic (Avg: ${systolicAverage.toFixed(2)})`}
+              activeDot={{ r: 8 }}
+              strokeWidth={2}
+            />
+            <Line
+              type="monotone"
+              dataKey="diastolic"
+              stroke="#7E6CAB"
+              name={`Diastolic (Avg: ${diastolicAverage.toFixed(2)})`}
+              strokeWidth={2}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };
 
-const calculateAverages = (data) => {
+const calculateAverages = (data: { systolic: number; diastolic: number }[]) => {
   const systolicSum = data.reduce((acc, entry) => acc + entry.systolic, 0);
   const diastolicSum = data.reduce((acc, entry) => acc + entry.diastolic, 0);
   const systolicAverage = systolicSum / data.length;
@@ -329,14 +130,55 @@ const calculateAverages = (data) => {
   return { systolicAverage, diastolicAverage };
 };
 
-const LegendContent = ({ systolicAverage, diastolicAverage }) => (
+interface LegendContentProps {
+  systolicAverage: number;
+  diastolicAverage: number;
+}
+
+const LegendContent: React.FC<LegendContentProps> = ({
+  systolicAverage,
+  diastolicAverage,
+}) => (
   <div className="legend-container">
     <div className="legend-item flex flex-col gap-1">
       <div className="legend-color" style={{ backgroundColor: "#C26EB4" }} />
-      <p className="font-bold">Systolic</p>
+      <p className="font-bold flex justify-end items-center">
+        <div
+          className="h-3 w-3 rounded-full mr-2"
+          style={{ backgroundColor: "#E66FD2" }}
+        ></div>
+        Systolic
+      </p>
       <div className="legend-label font-bold text-xl">{`
        ${systolicAverage.toFixed(0)}`}</div>
-      <div>Higher than Average</div>
+      <div className="flex flex-row items-center justify-end">
+        <img
+          src="assets/images/ArrowUp.png"
+          alt="ArrowUp"
+          className="w-3 h-2 mr-3"
+        />
+        <p>Lower than Average</p>
+      </div>
+    </div>
+    <div className="legend-item flex flex-col gap-1 mt-7">
+      <div className="legend-color" style={{ backgroundColor: "#C26EB4" }} />
+      <p className="font-bold flex justify-end items-center">
+        <div
+          className="h-3 w-3 rounded-full mr-2"
+          style={{ backgroundColor: "#8C6FE6" }}
+        ></div>
+        Diastolic
+      </p>
+      <div className="legend-label font-bold text-xl">{`
+       ${diastolicAverage.toFixed(0)}`}</div>
+      <div className="flex flex-row items-center justify-end">
+        <img
+          src="assets/images/ArrowDown.png"
+          alt="ArrowDown"
+          className="w-3 h-2 mr-3"
+        />
+        <p>Lower than Average</p>
+      </div>
     </div>
   </div>
 );

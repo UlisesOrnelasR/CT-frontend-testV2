@@ -51,7 +51,10 @@ export function Table({ data, columns, maxHeight = "400px" }: Props) {
         style={{ maxHeight }}
       >
         <table className="min-w-full text-left">
-          <tbody className="divide-y divide-shadow bg-white">
+          <tbody
+            className="divide-y divide-shadow bg-white"
+            style={{ maxHeight }}
+          >
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell) => (

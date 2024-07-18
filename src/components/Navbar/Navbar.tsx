@@ -2,7 +2,7 @@ import { EllipsisVertical, Settings } from "lucide-react";
 
 export const Navbar = () => {
   return (
-    <div className="w-full mt-5 mb-8 bg-white rounded-70px p-4 grid md:grid-cols-12 gap-4 items-center justify-center">
+    <div className="w-full mt-5 bg-white rounded-70px p-4 grid md:grid-cols-12 gap-4 items-center justify-center">
       <h1 className="md:col-span-2 flex justify-center md:justify-start font-bold cursor-pointer text-3xl">
         <img
           src="/assets/images/logo.png"
