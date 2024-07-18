@@ -7,7 +7,7 @@ import { store } from "./store";
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/CT-frontend-testV2/">
         <AppRouter />
       </BrowserRouter>
     </Provider>
